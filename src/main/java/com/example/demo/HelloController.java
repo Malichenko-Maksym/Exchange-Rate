@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.ui.Model;
 
 @Controller
@@ -33,16 +34,15 @@ public class HelloController {
 
 	@GetMapping
 	public String mainPage(Model model) {
-		model.addAttribute("newCar", new Car());
+		model.addAttribute("newCar", new ExchangeMoney());
 		model.addAttribute("summa", sum);
 		return "main";
 	}
 
 	@PostMapping("/add")
-	public String addCar(@ModelAttribute Car car) {
-		//cars.add(car);
-		val1=Double.parseDouble(car.getColor());
-		val2=Double.parseDouble(car.getMark());    
+	public String Exchange(@ModelAttribute ExchangeMoney car) {
+		val1=Double.parseDouble(car.getInputGBP());
+		val2=Double.parseDouble(car.getInputPLN());    
 		System.out.println(car);
 		sum=val1+val2;
 		System.out.println(sum);
