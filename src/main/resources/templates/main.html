@@ -5,6 +5,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'Hello, ' + ${name} + '!'" />
+   <!-- 
+placeholder="ammout in GBP"
+placeholder="ammout in PLN"
+   -->
+    <p>Hi, Joe</p>
+
+
+    <form th:action="@{/add}" th:object="${newCar}" method="post">
+        <p>Color: <input type="number" min="0" step="any"  value="40" th:field="*{color}"></p>
+        <p>Mark: <input type="number" min="0" step="any"  value="20" th:field="*{mark}"></p>
+        <p><input type="submit" value="add new car"></p>
+    </form>
+    <p th:text="${summa}"></p>
 </body>
 </html>

@@ -1,24 +1,57 @@
 package com.example.demo;
-import java.util.HashMap;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.ui.Model;
-
 
 @Controller
 @RequestMapping("/")
-public class HelloController{
+public class HelloController {
 
-    @GetMapping
-	public String greeting(@RequestParam(name="name", required=true, defaultValue="World") String name, Model model) {
-		model.addAttribute("name", name);
+	private double val1;
+	private double val2;
+	private double sum;
+
+
+	public HelloController() {
+		sum=0;
+	}
+
+
+	@GetMapping
+	public String mainPage(Model model) {
+		model.addAttribute("newCar", new Car());
+		model.addAttribute("summa", sum);
 		return "main";
-	} 
+	}
 
-    
-  
+	@PostMapping("/add")
+	public String addCar(@ModelAttribute Car car) {
+		//cars.add(car);
+		val1=Double.parseDouble(car.getColor());
+		val2=Double.parseDouble(car.getMark());    
+		System.out.println(car);
+		sum=val1+val2;
+		System.out.println(sum);
+
+		return "redirect:/";
+	}
+	
+	@GetMapping("/error")
+	public String handleError() {
+		return "main";
+	}
 }
