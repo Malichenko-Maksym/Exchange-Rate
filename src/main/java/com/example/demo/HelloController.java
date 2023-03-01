@@ -34,16 +34,16 @@ public class HelloController {
 
 	@GetMapping
 	public String mainPage(Model model) {
-		model.addAttribute("newCar", new ExchangeMoney());
+		model.addAttribute("newInput", new Input());
 		model.addAttribute("summa", sum);
 		return "main";
 	}
 
 	@PostMapping("/add")
-	public String Exchange(@ModelAttribute ExchangeMoney car) {
-		val1=Double.parseDouble(car.getInputGBP());
-		val2=Double.parseDouble(car.getInputPLN());    
-		System.out.println(car);
+	public String Exchange(@ModelAttribute Input input) {
+		val1=Double.parseDouble(input.getInputGBP());
+		val2=Double.parseDouble(input.getInputPLN());    
+		System.out.println(input);
 		sum=val1*WebRequest.getRateFrom("http://api.nbp.pl/api/exchangerates/rates/a/gbp/?format=json")+val2;
 		System.out.println(sum);
 
