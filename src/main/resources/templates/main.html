@@ -9,13 +9,13 @@
 placeholder="ammout in GBP"
 placeholder="ammout in PLN"
    -->
-    <p>Hi, Joe</p>
+    <p>Hi, Max</p>
 
 
     <form th:action="@{/add}" th:object="${newCar}" method="post">
-        <p>Color: <input type="number" min="0" step="any"  value="40" th:field="*{InputGBP}"></p>
-        <p>Mark: <input type="number" min="0" step="any"  value="20" th:field="*{InputPLN}"></p>
-        <p><input type="submit" value="add new car"></p>
+        <p>GBP: <input type="number" min="0" step="any"  value="40" th:field="*{InputGBP}"></p>
+        <p>PLN: <input type="number" min="0" step="any"  value="20" th:field="*{InputPLN}"></p>
+        <p><input type="submit" value="convert"></p>
     </form>
     <p th:text="${summa}"></p>
 </body>

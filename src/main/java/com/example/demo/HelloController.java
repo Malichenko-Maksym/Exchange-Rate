@@ -44,7 +44,7 @@ public class HelloController {
 		val1=Double.parseDouble(car.getInputGBP());
 		val2=Double.parseDouble(car.getInputPLN());    
 		System.out.println(car);
-		sum=val1+val2;
+		sum=val1*WebRequest.getRateFrom("http://api.nbp.pl/api/exchangerates/rates/a/gbp/?format=json")+val2;
 		System.out.println(sum);
 
 		return "redirect:/";
