@@ -50,10 +50,10 @@
 		</dependency>
 
 		<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    <versionId>2.2.2.RELEASE</versionId>
-</dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>2.7.9</version>
+		</dependency>
 
 	</dependencies>
 
