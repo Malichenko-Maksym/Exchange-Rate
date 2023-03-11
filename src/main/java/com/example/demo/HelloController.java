@@ -7,12 +7,12 @@ import org.springframework.ui.Model;
 
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class HelloController {
 
     private double exchangeRate = WebRequest.getRateFrom("http://api.nbp.pl/api/exchangerates/rates/a/gbp/?format=json");
 
-    @GetMapping
+    @GetMapping("/Currency")
     public String mainPage(Model model) {
         model.addAttribute("exchangeRate", exchangeRate);
         return "main";
